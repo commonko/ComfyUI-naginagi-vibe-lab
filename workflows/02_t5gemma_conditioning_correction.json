@@ -1,0 +1,1256 @@
+{
+  "id": "naginagi-vibe-lab-method-a-t5gemma",
+  "revision": 0,
+  "last_node_id": 100,
+  "last_link_id": 71,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "LLMAdapterLoader",
+      "pos": [
+        -407.87386922965044,
+        184.07774409129672
+      ],
+      "size": [
+        320,
+        174
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "llm_adapter",
+          "type": "LLM_ADAPTER",
+          "slot_index": 0,
+          "links": [
+            47,
+            51,
+            54
+          ]
+        },
+        {
+          "name": "info",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "LLMAdapterLoader",
+      "properties": {
+        "Node name for S&R": "LLMAdapterLoader"
+      },
+      "widgets_values": [
+        "t5gemma-2b-ul2_adapter_rw08_33k7.safetensors",
+        "t5gemma",
+        0.75,
+        "auto",
+        false
+      ]
+    },
+    {
+      "id": 2,
+      "type": "T5GEMMALoader",
+      "pos": [
+        -410.22999155631385,
+        -27.965168379998918
+      ],
+      "size": [
+        320,
+        146
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "LLM_MODEL",
+          "slot_index": 0,
+          "links": [
+            33,
+            37,
+            41
+          ]
+        },
+        {
+          "name": "tokenizer",
+          "type": "LLM_TOKENIZER",
+          "links": [
+            34,
+            38,
+            42
+          ]
+        },
+        {
+          "name": "info",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "T5GEMMALoader",
+      "properties": {
+        "Node name for S&R": "T5GEMMALoader"
+      },
+      "widgets_values": [
+        "t5gemma-2b-2b-ul2",
+        "auto",
+        false
+      ]
+    },
+    {
+      "id": 21,
+      "type": "t5gemmaApplyLLMToSDXLAdapter",
+      "pos": [
+        922.0371175020526,
+        49.645228169525154
+      ],
+      "size": [
+        315.9771484375,
+        218
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "llm_hidden_states",
+          "type": "LLM_HIDDEN_STATES",
+          "link": 45
+        },
+        {
+          "name": "llm_attention_mask",
+          "type": "LLM_ATTENTION_MASK",
+          "link": 46
+        },
+        {
+          "name": "llm_adapter",
+          "type": "LLM_ADAPTER",
+          "link": 47
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            48
+          ]
+        }
+      ],
+      "title": "t5gemmaApplyLLMToSDXLAdapter",
+      "properties": {
+        "Node name for S&R": "t5gemmaApplyLLMToSDXLAdapter"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1024,
+        1024,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 22,
+      "type": "t5gemmaApplyLLMToSDXLAdapter",
+      "pos": [
+        924.1379680594739,
+        338.99083535939246
+      ],
+      "size": [
+        315.9771484375,
+        218
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "llm_hidden_states",
+          "type": "LLM_HIDDEN_STATES",
+          "link": 49
+        },
+        {
+          "name": "llm_attention_mask",
+          "type": "LLM_ATTENTION_MASK",
+          "link": 50
+        },
+        {
+          "name": "llm_adapter",
+          "type": "LLM_ADAPTER",
+          "link": 51
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            55,
+            56
+          ]
+        }
+      ],
+      "title": "t5gemmaApplyLLMToSDXLAdapter",
+      "properties": {
+        "Node name for S&R": "t5gemmaApplyLLMToSDXLAdapter"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1024,
+        1024,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 23,
+      "type": "t5gemmaApplyLLMToSDXLAdapter",
+      "pos": [
+        926.2086655422783,
+        619.1955340921758
+      ],
+      "size": [
+        315.9771484375,
+        218
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "llm_hidden_states",
+          "type": "LLM_HIDDEN_STATES",
+          "link": 52
+        },
+        {
+          "name": "llm_attention_mask",
+          "type": "LLM_ATTENTION_MASK",
+          "link": 53
+        },
+        {
+          "name": "llm_adapter",
+          "type": "LLM_ADAPTER",
+          "link": 54
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            57
+          ]
+        }
+      ],
+      "title": "t5gemmaApplyLLMToSDXLAdapter",
+      "properties": {
+        "Node name for S&R": "t5gemmaApplyLLMToSDXLAdapter"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1024,
+        1024,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 10,
+      "type": "ConditioningProjection",
+      "pos": [
+        1400.6272195310303,
+        319.0061653364593
+      ],
+      "size": [
+        300,
+        160
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "target",
+          "type": "CONDITIONING",
+          "link": 48
+        },
+        {
+          "name": "source",
+          "type": "CONDITIONING",
+          "link": 55
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            15
+          ]
+        }
+      ],
+      "title": "ConditioningProjection",
+      "properties": {
+        "Node name for S&R": "ConditioningProjection"
+      },
+      "widgets_values": [
+        "add",
+        0.35,
+        true
+      ],
+      "color": "#223322",
+      "bgcolor": "#335533"
+    },
+    {
+      "id": 11,
+      "type": "ConditioningProjection",
+      "pos": [
+        1401.6322502061676,
+        551.5172207185251
+      ],
+      "size": [
+        300,
+        160
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "target",
+          "type": "CONDITIONING",
+          "link": 57
+        },
+        {
+          "name": "source",
+          "type": "CONDITIONING",
+          "link": 56
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            16
+          ]
+        }
+      ],
+      "title": "ConditioningProjection",
+      "properties": {
+        "Node name for S&R": "ConditioningProjection"
+      },
+      "widgets_values": [
+        "add",
+        0.25,
+        true
+      ],
+      "color": "#223322",
+      "bgcolor": "#335533"
+    },
+    {
+      "id": 24,
+      "type": "VAEEncode",
+      "pos": [
+        1359.72181045707,
+        814.0223932929371
+      ],
+      "size": [
+        280,
+        60
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 58
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 59
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "title": "VAEEncode",
+      "properties": {
+        "Node name for S&R": "VAEEncode",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [],
+      "color": "#443",
+      "bgcolor": "#665"
+    },
+    {
+      "id": 14,
+      "type": "VAEDecode",
+      "pos": [
+        2222.030269738394,
+        320.5108432401922
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 19
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 18
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            20
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 15,
+      "type": "SaveImage",
+      "pos": [
+        2226.1373859331907,
+        420.35903552346633
+      ],
+      "size": [
+        468.64780911574826,
+        678.7660972357794
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 20
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "MethodA_corrected"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "KSampler",
+      "pos": [
+        1843.5906664482613,
+        317.7605214872408
+      ],
+      "size": [
+        300,
+        340
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 69
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 15
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 16
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 70
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        144259443286325,
+        "randomize",
+        28,
+        2,
+        "euler_cfg_pp",
+        "sgm_uniform",
+        0.8
+      ]
+    },
+    {
+      "id": 28,
+      "type": "EasyCache",
+      "pos": [
+        840.5552682315831,
+        -268.73587084266825
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 68
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            69
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EasyCache"
+      },
+      "widgets_values": [
+        0.2,
+        0.15,
+        0.95,
+        false
+      ]
+    },
+    {
+      "id": 12,
+      "type": "EmptyLatentImage",
+      "pos": [
+        1706.06690001537,
+        814.8150561870306
+      ],
+      "size": [
+        260,
+        106
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            70
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        832,
+        1216,
+        1
+      ]
+    },
+    {
+      "id": 26,
+      "type": "ModelSamplingDiscrete",
+      "pos": [
+        446.5083321463496,
+        -269.223182018806
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 71
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            68
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingDiscrete"
+      },
+      "widgets_values": [
+        "eps",
+        false
+      ]
+    },
+    {
+      "id": 18,
+      "type": "T5GEMMATextEncoder",
+      "pos": [
+        376.4245043204814,
+        -68.13982121963065
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "llm_model",
+          "type": "LLM_MODEL",
+          "link": 33
+        },
+        {
+          "name": "llm_tokenizer",
+          "type": "LLM_TOKENIZER",
+          "link": 34
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hidden_states",
+          "type": "LLM_HIDDEN_STATES",
+          "links": [
+            45
+          ]
+        },
+        {
+          "name": "attention_mask",
+          "type": "LLM_ATTENTION_MASK",
+          "links": [
+            46
+          ]
+        },
+        {
+          "name": "info",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "T5GEMMATextEncoder",
+      "properties": {
+        "Node name for S&R": "T5GEMMATextEncoder"
+      },
+      "widgets_values": [
+        "1girl, solo, white hair, silver hair, very long hair, blue eyes, looking at viewer, slight smile, reaching toward viewer, outstretched hand, foreshortening, depth of field, floral hair ornament, braid, hair jewelry, purple robe, violet dress, gold embroidery, ornate clothing, black background, starry background, glowing particles, stardust, light trails, luminous rings, cosmic atmosphere, fantasy fashion, dramatic lighting, high contrast, elegant silhouette, fine lineart, painterly shading",
+        512,
+        "cuda",
+        "bfloat16"
+      ]
+    },
+    {
+      "id": 19,
+      "type": "T5GEMMATextEncoder",
+      "pos": [
+        374.1805381229333,
+        198.36463490678034
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "llm_model",
+          "type": "LLM_MODEL",
+          "link": 37
+        },
+        {
+          "name": "llm_tokenizer",
+          "type": "LLM_TOKENIZER",
+          "link": 38
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hidden_states",
+          "type": "LLM_HIDDEN_STATES",
+          "links": [
+            49
+          ]
+        },
+        {
+          "name": "attention_mask",
+          "type": "LLM_ATTENTION_MASK",
+          "links": [
+            50
+          ]
+        },
+        {
+          "name": "info",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "T5GEMMATextEncoder",
+      "properties": {
+        "Node name for S&R": "T5GEMMATextEncoder"
+      },
+      "widgets_values": [
+        "The character has six fingers on the right hand. The face appears distorted with asymmetric eyes. The hair color bleeds into the background.",
+        512,
+        "cuda",
+        "bfloat16"
+      ]
+    },
+    {
+      "id": 20,
+      "type": "T5GEMMATextEncoder",
+      "pos": [
+        374.28204404976566,
+        461.3919738487822
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "llm_model",
+          "type": "LLM_MODEL",
+          "link": 41
+        },
+        {
+          "name": "llm_tokenizer",
+          "type": "LLM_TOKENIZER",
+          "link": 42
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hidden_states",
+          "type": "LLM_HIDDEN_STATES",
+          "links": [
+            52
+          ]
+        },
+        {
+          "name": "attention_mask",
+          "type": "LLM_ATTENTION_MASK",
+          "links": [
+            53
+          ]
+        },
+        {
+          "name": "info",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "T5GEMMATextEncoder",
+      "properties": {
+        "Node name for S&R": "T5GEMMATextEncoder"
+      },
+      "widgets_values": [
+        "multiple girls, flat front pose, bright daylight, modern room, casual clothes, school uniform, armor, muddy colors, empty background, weak hand emphasis, low contrast, realistic photography, text, logo, watermark",
+        512,
+        "cuda",
+        "bfloat16"
+      ]
+    },
+    {
+      "id": 25,
+      "type": "LoadImage",
+      "pos": [
+        1360.6403063288744,
+        928.2190411681567
+      ],
+      "size": [
+        280,
+        320
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            58
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "title": "LoadImage",
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [
+        "img.png",
+        "image"
+      ],
+      "color": "#443",
+      "bgcolor": "#665"
+    },
+    {
+      "id": 1,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -410.70117805717877,
+        -198.33200696059004
+      ],
+      "size": [
+        320,
+        98
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            71
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 2,
+          "links": [
+            18,
+            59
+          ]
+        }
+      ],
+      "title": "SDXL Checkpoint (RouWei v0.8)",
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "SDXL\\Illustrious-XL-v2.0.safetensors"
+      ]
+    },
+    {
+      "id": 100,
+      "type": "Note",
+      "pos": [
+        -900,
+        -300
+      ],
+      "size": [
+        500,
+        400
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "📝 Workflow Guide",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "## 🔬 Method A: T5Gemma Conditioning Correction\n\n### 概要\nT5Gemma-2B を text encoder として使い、\n問題テキストの方向ベクトルを ConditioningProjection で\nPos/Neg それぞれに射影加減算する「低レベル」ワークフロー。\n\nConditioningCorrector が内部でやることを\n手動でパイプラインとして組んだ実験的構成。\n\n### フロー\n1. T5Gemma Loader → T5Gemma-2B モデル読み込み\n2. LLMAdapterLoader → RouWei Adapter 読み込み\n3. T5GEMMATextEncoder × 3 → Pos / Problem / Neg を各エンコード\n4. t5gemmaApplyLLMToSDXLAdapter × 3 → CONDITIONING 変換\n5. ConditioningProjection × 2 → Pos から Problem 方向を減算、Neg に加算\n6. KSampler → txt2img 生成\n\n### 使用モデル\n- **LLM Encoder**: T5Gemma-2B-UL2 (`t5gemma-2b-2b-ul2`)\n- **Adapter**: RouWei v0.8 (`t5gemma-2b-ul2_adapter_rw08_33k7.safetensors`)\n- **SD**: SDXL Illustrious v2.0\n- **Cache**: EasyCache (推論高速化)\n\n### 必須カスタムノード\n- **ComfyUI-naginagi-vibe-lab** (`ConditioningProjection`)\n- **ComfyUI-T5Gemma** (T5GEMMALoader, T5GEMMATextEncoder, t5gemmaApplyLLMToSDXLAdapter, LLMAdapterLoader)\n- **ComfyUI-EasyCache** (EasyCache)\n\n### 補足\n- ⑦⑧ (Ref LoadImage + VAEEncode) は mode=2 (BYPASS) — img2img 用の予約。\n- Problem Text は「問題の記述」を手書き。LLM 自動分析はこのフローにはなし。\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      15,
+      10,
+      0,
+      13,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      16,
+      11,
+      0,
+      13,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      18,
+      1,
+      2,
+      14,
+      1,
+      "VAE"
+    ],
+    [
+      19,
+      13,
+      0,
+      14,
+      0,
+      "LATENT"
+    ],
+    [
+      20,
+      14,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      33,
+      2,
+      0,
+      18,
+      0,
+      "LLM_MODEL"
+    ],
+    [
+      34,
+      2,
+      1,
+      18,
+      1,
+      "LLM_TOKENIZER"
+    ],
+    [
+      37,
+      2,
+      0,
+      19,
+      0,
+      "LLM_MODEL"
+    ],
+    [
+      38,
+      2,
+      1,
+      19,
+      1,
+      "LLM_TOKENIZER"
+    ],
+    [
+      41,
+      2,
+      0,
+      20,
+      0,
+      "LLM_MODEL"
+    ],
+    [
+      42,
+      2,
+      1,
+      20,
+      1,
+      "LLM_TOKENIZER"
+    ],
+    [
+      45,
+      18,
+      0,
+      21,
+      0,
+      "LLM_HIDDEN_STATES"
+    ],
+    [
+      46,
+      18,
+      1,
+      21,
+      1,
+      "LLM_ATTENTION_MASK"
+    ],
+    [
+      47,
+      3,
+      0,
+      21,
+      2,
+      "LLM_ADAPTER"
+    ],
+    [
+      48,
+      21,
+      0,
+      10,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      49,
+      19,
+      0,
+      22,
+      0,
+      "LLM_HIDDEN_STATES"
+    ],
+    [
+      50,
+      19,
+      1,
+      22,
+      1,
+      "LLM_ATTENTION_MASK"
+    ],
+    [
+      51,
+      3,
+      0,
+      22,
+      2,
+      "LLM_ADAPTER"
+    ],
+    [
+      52,
+      20,
+      0,
+      23,
+      0,
+      "LLM_HIDDEN_STATES"
+    ],
+    [
+      53,
+      20,
+      1,
+      23,
+      1,
+      "LLM_ATTENTION_MASK"
+    ],
+    [
+      54,
+      3,
+      0,
+      23,
+      2,
+      "LLM_ADAPTER"
+    ],
+    [
+      55,
+      22,
+      0,
+      10,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      56,
+      22,
+      0,
+      11,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      57,
+      23,
+      0,
+      11,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      58,
+      25,
+      0,
+      24,
+      0,
+      "IMAGE"
+    ],
+    [
+      59,
+      1,
+      2,
+      24,
+      1,
+      "VAE"
+    ],
+    [
+      68,
+      26,
+      0,
+      28,
+      0,
+      "MODEL"
+    ],
+    [
+      69,
+      28,
+      0,
+      13,
+      0,
+      "MODEL"
+    ],
+    [
+      70,
+      12,
+      0,
+      13,
+      3,
+      "LATENT"
+    ],
+    [
+      71,
+      1,
+      0,
+      26,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "1. Model Loading",
+      "bounding": [
+        -428.34510318610006,
+        -291.57980682172524,
+        394.3990347979591,
+        674.9775262048555
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "2. T5Gemma Text Encoding",
+      "bounding": [
+        330.29643684420523,
+        -167.65618207661743,
+        485.55665018540594,
+        861.2326131721222
+      ],
+      "color": "#88A",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "3. Adapter → CONDITIONING",
+      "bounding": [
+        865.8492785959429,
+        -51.82733907873606,
+        426.62070534445616,
+        920.2753517844351
+      ],
+      "color": "#A8A",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "4. Conditioning Correction",
+      "bounding": [
+        1341.228271453802,
+        227.84401404238963,
+        412.54361239346326,
+        529.1826467803028
+      ],
+      "color": "#3a8a3a",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "5. Generation",
+      "bounding": [
+        1800.633679587467,
+        230.01031433762134,
+        387.14414654356074,
+        467.35534667969046
+      ],
+      "color": "#8A8",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.4958677685950619,
+      "offset": [
+        1587.2395320804296,
+        763.1893422134752
+      ]
+    },
+    "frontendVersion": "1.42.15",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
