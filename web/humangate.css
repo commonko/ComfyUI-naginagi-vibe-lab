@@ -1,0 +1,132 @@
+#humangate-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: rgba(8, 10, 14, 0.72);
+  color: #f4f7fb;
+  display: grid;
+  place-items: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+#humangate-overlay.hg-hidden {
+  display: none;
+}
+
+.hg-panel {
+  width: min(1100px, 92vw);
+  max-height: 88vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: #171b24;
+  border: 1px solid #343b4c;
+  border-radius: 12px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.hg-header,
+.hg-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #202635;
+  border-bottom: 1px solid #343b4c;
+}
+
+.hg-footer {
+  border-top: 1px solid #343b4c;
+  border-bottom: 0;
+  justify-content: flex-end;
+}
+
+.hg-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.hg-header p {
+  margin: 3px 0 0;
+  color: #b6c0d2;
+}
+
+#hg-close {
+  margin-left: auto;
+}
+
+.hg-body {
+  padding: 16px;
+  overflow: auto;
+}
+
+.hg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.hg-tile,
+.hg-text-item {
+  color: #f4f7fb;
+  background: #10141d;
+  border: 2px solid #2e3545;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.hg-tile.hg-selected,
+.hg-text-item.hg-selected {
+  border-color: #89bcff;
+  box-shadow: 0 0 0 2px rgba(137, 188, 255, 0.2);
+}
+
+.hg-tile img {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  background: #080a0f;
+  border-radius: 5px;
+}
+
+.hg-tile span {
+  display: block;
+  margin-top: 6px;
+  text-align: center;
+}
+
+.hg-text-list {
+  display: grid;
+  gap: 10px;
+}
+
+.hg-text-item {
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+.hg-footer button,
+.hg-header button {
+  color: #f4f7fb;
+  background: #30394b;
+  border: 1px solid #4b5870;
+  border-radius: 6px;
+  padding: 7px 12px;
+}
+
+.hg-footer button.hg-primary {
+  background: #2d6cdf;
+  border-color: #6ba0ff;
+}
+
+#hg-status {
+  margin-right: auto;
+  color: #9ca8bd;
+  font-size: 12px;
+  max-width: 42vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

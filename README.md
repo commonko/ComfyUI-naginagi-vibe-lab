@@ -11,6 +11,8 @@
 - [Nodes](#-nodes)
   - [Corrector](#corrector)
   - [Scheduler](#scheduler)
+  - [HumanGate](#humangate)
+- [Workflows](#-workflows)
 - [動作確認環境](#動作確認環境)
 
 # ComfyUI-naginagi-vibe-lab
@@ -19,6 +21,7 @@
 
 - LLM の画像分析テキストから Conditioning を直接補正する `Corrector` 系
 - ステップ / 反復ループに沿って Conditioning や LoRA を変調する `Scheduler` 系
+- ワークフロー実行中にユーザーが介入できる `HumanGate` 系 *(v1.1 NEW)*
 - ComfyUI 標準の `TextGenerate` (Qwen 3.5 等) との組み合わせを想定
 
 ## インストール
@@ -81,6 +84,41 @@ LLM の画像分析テキストを CLIP で埋め込み化し、元の Condition
   - LLM 分析で「もう問題なし」と判定したら自動停止
 
 詳細は [docs/scheduler.md](docs/scheduler.md) を参照。
+
+---
+
+### HumanGate
+
+> *v1.1 NEW* — Nodes 2.0 対応
+
+ワークフロー実行中に **ユーザーが介入** できる human-in-the-loop ノード群。フルスクリーンオーバーレイで画像/テキストを表示し、選択・承認・中止の判断を挟めます。
+
+- `HumanGatePauseImage` ⏸️
+  - IMAGE をパススルーする前にユーザーの Resume/Stop を待つ
+- `HumanGateImageChooser` 🖼️
+  - IMAGE バッチから選択 (`single` / `multiple`)。`pause_mode` で `always_pause` / `pass_through` / `take_first` / `take_last` / `repeat_last` を切替可
+- `HumanGatePickImage` 👆
+  - 最大 4 つの IMAGE 入力から 1 つを選択 (A/B/C/D ラベル付き)
+- `HumanGatePickText` 📝
+  - 最大 4 つの STRING 入力から 1 つを選択
+- `HumanGateCompareChooser` ⚖️
+  - ImageChooser の A/B 比較バリアント
+
+**キーボードショートカット**:
+`1`-`9` = 選択 / `Enter` = Resume / `Esc` = Stop / `A` = 全選択 / `C` = 選択解除
+
+**バックエンド API** (`/humangate/*`):
+| Method | Path | 用途 |
+|---|---|---|
+| GET | `/humangate/sessions` | 待機中セッション一覧 |
+| GET | `/humangate/session/{gate_id}` | 1 セッション詳細 |
+| POST | `/humangate/respond` | Resume/Stop + 選択インデックス |
+| POST | `/humangate/cancel` | 強制 Stop |
+| POST | `/humangate/cleanup` | 完了済みセッション掃除 |
+
+> ⚠️ **Stop について**: v0.1 では `HumanGateUserStop` 例外を raise します。ComfyUI 上では Error Report として表示されますが、意図的な停止であり異常ではありません。v0.2+ で非エラーキャンセル API への移行を予定しています。
+
+詳細は [docs/humangate.md](docs/humangate.md) を参照。
 
 ---
 

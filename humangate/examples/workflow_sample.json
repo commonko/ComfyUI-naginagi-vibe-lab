@@ -1,0 +1,899 @@
+{
+  "id": "7687d38a-ccc7-4bb1-9fec-7da3d0273f83",
+  "revision": 0,
+  "last_node_id": 19,
+  "last_link_id": 26,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -87.10971897183123,
+        463.83558210829153
+      ],
+      "size": [
+        318.6875,
+        118.6875
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            14
+          ]
+        }
+      ],
+      "title": "1. Positive",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "1girl, solo, kemonomimi, animal ears, black hair, long hair, blunt bangs, pale skin, red eyes, half-closed eyes, narrow eyes, looking at viewer, looking down, smug, contempt, evil smile, mischievous smile, gothic lolita, black dress, frilled dress, lace, headpiece, black headwear, long sleeves, black gloves, corset, belts, metal trim, voluminous skirt, elegant fingers, holding weapon, holding katana, katana, sword, combat pose, dynamic pose, wide composition, landscape, red background, black background, white background, graphic design, poster composition, warning sign, hazard symbol, abstract symbols, dripping shapes, broken frame, vintage object, high contrast, red black white palette, blue green accent, sharp silhouette, dark pop decay, cold sensual mood, rebellious mood, villainess, anime illustration"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -86.98903321101221,
+        629.3024173652796
+      ],
+      "size": [
+        318.6875,
+        118.6875
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            15
+          ]
+        }
+      ],
+      "title": "2. Negative",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "worst quality, low quality, score_1, score_2, score_3, artist name,\nlowres, blurry face, jpeg artifacts, watermark, signature, text, logo,\nbad anatomy, bad proportions, deformed face, asymmetrical eyes,\nextra fingers, missing fingers, fused fingers, deformed hands,\nfront view, looking at viewer, smiling widely, open mouth, exaggerated expression,\nshort hair, dark hair, colorful hair, cluttered background, indoor scene,\nhigh saturation, glossy rendering, heavy contrast, detailed city background, multiple girls, chibi"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "EmptyLatentImage",
+      "pos": [
+        365.19831379411926,
+        77.8692770455013
+      ],
+      "size": [
+        318.6875,
+        143.140625
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            16
+          ]
+        }
+      ],
+      "title": "3. Empty Latent batch 4",
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        512,
+        512,
+        4
+      ]
+    },
+    {
+      "id": 6,
+      "type": "VAEDecode",
+      "pos": [
+        730.5574041162463,
+        109.55901585722083
+      ],
+      "size": [
+        229.328125,
+        75.28125
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 17
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            9
+          ]
+        }
+      ],
+      "title": "VAE decode",
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 7,
+      "type": "HumanGateImageChooser",
+      "pos": [
+        1066.6129089482404,
+        180.10140749046533
+      ],
+      "size": [
+        378.625,
+        316.15625
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            10
+          ]
+        },
+        {
+          "name": "selected_indices",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "name": "selection_json",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "6. Choose image(s)",
+      "properties": {
+        "Node name for S&R": "HumanGateImageChooser"
+      },
+      "widgets_values": [
+        "Select image(s), then Resume.",
+        "multiple",
+        "always_pause",
+        0
+      ],
+      "bgcolor": "#26384f"
+    },
+    {
+      "id": 8,
+      "type": "PreviewImage",
+      "pos": [
+        1490.055022790842,
+        179.5839572637369
+      ],
+      "size": [
+        318.625,
+        298.625
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 10
+        }
+      ],
+      "outputs": [],
+      "title": "7. Preview Selected",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 9,
+      "type": "KSampler",
+      "pos": [
+        365.90000570951537,
+        279.8550037757749
+      ],
+      "size": [
+        321.09375,
+        317.515625
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 24
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 14
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 15
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            17
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        635389276653495,
+        "randomize",
+        20,
+        8,
+        "deis",
+        "beta",
+        1
+      ]
+    },
+    {
+      "id": 10,
+      "type": "LoadImage",
+      "pos": [
+        1060.5817885212514,
+        611.1337755460518
+      ],
+      "size": [
+        317.640625,
+        339.15625
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            18
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "0. Image A",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "img.png",
+        "image"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "LoadImage",
+      "pos": [
+        1062.0969099812123,
+        988.5580347318422
+      ],
+      "size": [
+        317.640625,
+        339.15625
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            19
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "1. Image B",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "img.png",
+        "image"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "HumanGatePickImage",
+      "pos": [
+        1486.6423506550402,
+        735.9822748441475
+      ],
+      "size": [
+        377.640625,
+        313.765625
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image_1",
+          "type": "IMAGE",
+          "link": 18
+        },
+        {
+          "name": "image_2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 19
+        },
+        {
+          "name": "image_3",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "image_4",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            20
+          ]
+        },
+        {
+          "name": "selected_index",
+          "type": "INT",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "name": "selected_label",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        },
+        {
+          "name": "selection_json",
+          "type": "STRING",
+          "slot_index": 3,
+          "links": []
+        }
+      ],
+      "title": "2. Pick Input Image",
+      "properties": {
+        "Node name for S&R": "HumanGatePickImage"
+      },
+      "widgets_values": [
+        "Pick one image input.",
+        "A,B",
+        "always_pause",
+        0
+      ],
+      "bgcolor": "#26384f"
+    },
+    {
+      "id": 13,
+      "type": "PreviewImage",
+      "pos": [
+        1926.6423506550404,
+        735.9822748441475
+      ],
+      "size": [
+        317.640625,
+        297.640625
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 20
+        }
+      ],
+      "outputs": [],
+      "title": "3. Preview Picked",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 14,
+      "type": "LoadImage",
+      "pos": [
+        -174.89473234087944,
+        -525.337422371037
+      ],
+      "size": [
+        318.125,
+        339.15625
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            21
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "0. Load Image",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "img.png",
+        "image"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "HumanGatePauseImage",
+      "pos": [
+        202.66514939663892,
+        -525.337422371037
+      ],
+      "size": [
+        358.125,
+        247.140625
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            22
+          ]
+        },
+        {
+          "name": "decision",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "name": "gate_id",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "1. Pause / Resume / Stop",
+      "properties": {
+        "Node name for S&R": "HumanGatePauseImage"
+      },
+      "widgets_values": [
+        "Paused. Resume or Stop?",
+        0,
+        true
+      ],
+      "bgcolor": "#26384f"
+    },
+    {
+      "id": 16,
+      "type": "PreviewImage",
+      "pos": [
+        616.5646694321919,
+        -525.337422371037
+      ],
+      "size": [
+        318.125,
+        298.125
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 22
+        }
+      ],
+      "outputs": [],
+      "title": "2. Preview",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 17,
+      "type": "UNETLoader",
+      "pos": [
+        -164.14712736846622,
+        -44.4933738382859
+      ],
+      "size": [
+        399.265625,
+        144.453125
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "showAdvanced": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            24
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "Anima\\anima-base-v1.0.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "CLIPLoader",
+      "pos": [
+        -168.65966454155907,
+        141.8919118337016
+      ],
+      "size": [
+        402.65625,
+        144.453125
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            25,
+            26
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen_3_06b_base.safetensors",
+        "stable_diffusion",
+        "default"
+      ]
+    },
+    {
+      "id": 19,
+      "type": "VAELoader",
+      "pos": [
+        -172.5621403041592,
+        328.54134209791715
+      ],
+      "size": [
+        408.0625,
+        81.8125
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "qwen_image_vae.safetensors"
+      ]
+    }
+  ],
+  "links": [
+    [
+      9,
+      6,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      7,
+      0,
+      8,
+      0,
+      "IMAGE"
+    ],
+    [
+      14,
+      2,
+      0,
+      9,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      15,
+      3,
+      0,
+      9,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      16,
+      4,
+      0,
+      9,
+      3,
+      "LATENT"
+    ],
+    [
+      17,
+      9,
+      0,
+      6,
+      0,
+      "LATENT"
+    ],
+    [
+      18,
+      10,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      19,
+      11,
+      0,
+      12,
+      1,
+      "IMAGE"
+    ],
+    [
+      20,
+      12,
+      0,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      21,
+      14,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      22,
+      15,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ],
+    [
+      23,
+      19,
+      0,
+      6,
+      1,
+      "VAE"
+    ],
+    [
+      24,
+      17,
+      0,
+      9,
+      0,
+      "MODEL"
+    ],
+    [
+      25,
+      18,
+      0,
+      2,
+      0,
+      "CLIP"
+    ],
+    [
+      26,
+      18,
+      0,
+      3,
+      0,
+      "CLIP"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Generate batch /ex. Anima-base-v1.0",
+      "bounding": [
+        -195.87901220019828,
+        -128.40943103054553,
+        1184.6979058980041,
+        901.4408222201347
+      ],
+      "color": "#6a4a1d",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Human choose",
+      "bounding": [
+        1048.1652596284257,
+        104.57831756694152,
+        789.2851974861494,
+        408.3585619986627
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Pick from inputs",
+      "bounding": [
+        1046.6423506550404,
+        535.9822748441475,
+        1240.4545593261719,
+        819.8485565185547
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Human pause gate",
+      "bounding": [
+        -194.89473234087922,
+        -597.5382594277693,
+        1183.3969563878459,
+        440.1742683410645
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.4967370584473253,
+      "offset": [
+        693.1149774182718,
+        889.9644544705569
+      ]
+    },
+    "frontendVersion": "1.43.18",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
